@@ -1,8 +1,8 @@
 import reactImage from "./assets/react-logo-xs.png";
-import blocksLogo from "./assets/blocks-logo.png";
-import mixLogo from "./assets/mix-logo.webp";
-import settingsIcon from "./assets/settings-icon.png";
-import stateLogo from "./assets/state-logo.png";
+import componentsImage from "./assets/blocks-logo.png";
+import jsxImage from "./assets/mix-logo.webp";
+import propsImage from "./assets/settings-icon.png";
+import stateImage from "./assets/state-logo.png";
 
 const reactTitles = [ 'Fundamentos', 'Bases', 'Principios'];
 
@@ -52,22 +52,22 @@ function App() {
         <div>
           {/* Ejemplo de componente que recibe props */}
           <CoreConcepts 
-            imagePath={blocksLogo}
+            imagePath={componentsImage}
             title="Componentes" 
             description="El úcleo principal de construcción de una UI con React. La combinación de distintos componentes logra una composición de una UI más manejable"/>
           
           <CoreConcepts 
-            imagePath={mixLogo}
+            imagePath={jsxImage}
             title="JSX" 
             description="Una combinación de código JS y HTML. Retorna contenido HTML potencialmente dinámico que será renderizado para componer la UI."/>
           
           <CoreConcepts 
-            imagePath={settingsIcon}
+            imagePath={propsImage}
             title="Props" 
             description="Proporcionan a los componentes la capacidad de poder tener atributso personalizables para que estos reciban información."/>
           
           <CoreConcepts 
-            imagePath={stateLogo}
+            imagePath={stateImage}
             title="States" 
             description="Principales manejadores de datos en React, cuando encuentran un cambio en los datos obligan al componente a re-renderizarse yu actualizar la interfaz."/>
         </div>
