@@ -1,4 +1,7 @@
-import reactImage from '../assets/react-logo-xs.png';
+import reactImage from '../../assets/react-logo-xs.png';
+
+//* Importación de estilos CSS de este componente
+import './Header.css';
 
 const reactTitles = [ 'Fundamentos', 'Bases', 'Principios'];
 
@@ -7,6 +10,7 @@ function getRandomIntInRange(min, max) {
   return Math.floor(Math.random() * (max - min +1) + min);
 }
 
+//! Se debe usar "export default" para poder exportar el componente y utilizar, siempre y cuando sea un solo componente/cosa por fichero, opción más común
 export default function Header() {
   const dinamicTitle = reactTitles[getRandomIntInRange(0, 2)]
   return(
@@ -27,4 +31,3 @@ export default function Header() {
     </header>
   );
 }
-

@@ -1,10 +1,12 @@
-import Header from './components/Header.jsx';
+// Siguiente video: https://youtu.be/cifTVzfIwrY?list=PLO8lO9oepSLv0zh2j644zWefsxEGR8zdC&t=2
+
+import Header from './components/Header/Header.jsx';
 
 //* Constante CoreConcepts para la información que se añade en el componente CoreConcepts
 import { CORE_CONCEPTS } from './data.js'; 
 
 //* Componente para poder poner
-import CoreConcepts from './components/CoreConcepts.jsx';
+import CoreConcepts from './components/CoreConcepts/CoreConcepts.jsx';
 
 function App() {
   return (
