@@ -7,12 +7,13 @@ import { CORE_CONCEPTS } from './data.js';
 
 //* Componente para poder poner
 import CoreConcepts from './components/CoreConcepts/CoreConcepts.jsx';
+import TabButton from './components/TabButton/TabButton.jsx';
 
 function App() {
   return (
     <>
       <Header/>
-      <section id="coreConcepts">
+      <section id='coreConcepts'>
         <h2>Principales Características</h2>
         <div>
           {/* Usar Spread Operator "..." para pasar todas las propiedades que existan en la constante de información 
@@ -39,6 +40,17 @@ function App() {
 
         </div>
       </section>
+
+      <section id='examples'>
+        <h2>Ejemplo React</h2>
+        <menu className='tab'>
+          <TabButton>Componentes</TabButton>
+          <TabButton>JSX</TabButton>
+          <TabButton>Props</TabButton>
+          <TabButton>Estados</TabButton>
+        </menu>
+      </section>
+
       <main>
         <h2>¡Comenzamos Picando Código en React!</h2>
       </main>
