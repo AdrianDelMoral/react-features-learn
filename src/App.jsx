@@ -10,6 +10,21 @@ import CoreConcepts from './components/CoreConcepts/CoreConcepts.jsx';
 import TabButton from './components/TabButton/TabButton.jsx';
 
 function App() {
+  //* Evento que registra que pulso un botón
+  /** 
+    *? En JavaScript:
+    *? document.querySelector("button").addEventListener("click", ()=>{
+    *?  console.log('Ey! Estás haciendo click en los botones!')
+    *? })
+  */
+
+    
+  //* handleClick = manejador de clicks
+  //* Evento en React:
+  function handleClickMenu(selectedButton){
+    console.log(`Ey! Estás pulsando ${selectedButton} botón de mi menú!`);
+  }
+
   return (
     <>
       <Header/>
@@ -44,11 +59,21 @@ function App() {
       <section id='examples'>
         <h2>Ejemplo React</h2>
         <menu className='tab'>
-          <TabButton>Componentes</TabButton>
-          <TabButton>JSX</TabButton>
-          <TabButton>Props</TabButton>
-          <TabButton>Estados</TabButton>
+          {/* Se ejecutará handleClickMenu cuando se pulse, 
+              no cuando el navegador lea la linea de código
+              si tuviese parentesis handleClickMenu() se llamaria nada más leer la linea
+
+              en caso de tener arrowFunction ()=> nombreFuncion() no pasa nada 
+              si ponemos el parentesis, ya que recibe la declaración, pero no 
+              la ejecuta si no solo la arrow function
+          */}
+          {/* Custom Parameters in the Dinamic Events */}
+          <TabButton onClick={()=>handleClickMenu("Componentes")}>Componentes</TabButton>
+          <TabButton onClick={()=>handleClickMenu("JSX")}>JSX</TabButton>
+          <TabButton onClick={()=>handleClickMenu("Props")}>Props</TabButton>
+          <TabButton onClick={()=>handleClickMenu("Estados")}>Estados</TabButton>
         </menu>
+        Contenido Dinamico
       </section>
 
       <main>
