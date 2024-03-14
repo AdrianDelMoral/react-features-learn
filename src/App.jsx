@@ -36,11 +36,31 @@ function App() {
   //? nombreVariable = contendrá la información más actual
   //? setNombreVariable = contendrá la función para actualizar ese nombreVariable
 
-  const [selectedTopic, setSelectedTopic] = useState("components"); 
+  const [selectedTopic, setSelectedTopic] = useState(null); 
 
   function handleClickMenu(selectedButton){
     setSelectedTopic(selectedButton);
     console.log(`Ey! Estás pulsando el botón ${selectedTopic}`);
+  }
+
+  //* tabContent por defecto, para a la hora de no haber pulsado nada, que muestr algo por defecto
+  let tabContent = (
+    <p>
+      Aquí se va a mostrar información sobre una característica de React, para ello elige una opción del menú.
+    </p>
+  )
+  
+  //* Si selectedTopic hay algo seleccionado mostrará el componente:
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
+    );
   }
 
   return (
@@ -84,17 +104,9 @@ function App() {
           <TabButton onClick={()=>handleClickMenu("state")}>Estados</TabButton>
         </menu>
         
-        <div id="tab-content">
-          <h3>{EXAMPLES[selectedTopic].title}</h3>
-          <p>{EXAMPLES[selectedTopic].description}</p>
-          <pre>
-            <code>
-              {EXAMPLES[selectedTopic].code}
-            </code>
-          </pre>
-        </div>
+        {tabContent}
+        
       </section>
-
       <main>
         <h2>¡Comenzamos Picando Código en React!</h2>
       </main>
