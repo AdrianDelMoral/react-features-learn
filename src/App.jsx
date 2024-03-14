@@ -3,10 +3,15 @@
 import Header from './components/Header/Header.jsx';
 //* Constante CoreConcepts para la información que se añade en el componente CoreConcepts
 import { CORE_CONCEPTS } from './data.js'; 
-//* Componente para poder poner
+
+//* Constante EXAMPLES para la información que se añade en el componente EXAMPLES
+import { EXAMPLES } from './data.js'; 
+
+//* Componentes para poder utilizar
 import CoreConcepts from './components/CoreConcepts/CoreConcepts.jsx';
 import TabButton from './components/TabButton/TabButton.jsx';
 import { useState } from 'react';
+
 
 function App() {
   //* Eventos que registran que se pulsa un botón
@@ -31,7 +36,7 @@ function App() {
   //? nombreVariable = contendrá la información más actual
   //? setNombreVariable = contendrá la función para actualizar ese nombreVariable
 
-  const [selectedTopic, setSelectedTopic] = useState("Por favor, pulsa un botón del menú"); 
+  const [selectedTopic, setSelectedTopic] = useState("components"); 
 
   function handleClickMenu(selectedButton){
     setSelectedTopic(selectedButton);
@@ -47,7 +52,7 @@ function App() {
           {/* Usar Spread Operator "..." para pasar todas las propiedades que existan en la constante de información 
             que recibimos de "./data.js" ya que se llamarán las variables en todas de la misma forma:
             - Serán añadidas como props del componente
-          */}
+          */} 
           <CoreConcepts {...CORE_CONCEPTS[0]}/>
           <CoreConcepts {...CORE_CONCEPTS[1]}/>
           <CoreConcepts {...CORE_CONCEPTS[2]}/>
@@ -73,14 +78,21 @@ function App() {
               parentesis, ya que recibe la declaración, pero no la ejecuta si no solo la 
               arrow function
           */}
-          <TabButton onClick={()=>handleClickMenu("Componentes")}>Componentes</TabButton>
-          <TabButton onClick={()=>handleClickMenu("JSX")}>JSX</TabButton>
-          <TabButton onClick={()=>handleClickMenu("Props")}>Props</TabButton>
-          <TabButton onClick={()=>handleClickMenu("Estados")}>Estados</TabButton>
+          <TabButton onClick={()=>handleClickMenu("components")}>Componentes</TabButton>
+          <TabButton onClick={()=>handleClickMenu("jsx")}>JSX</TabButton>
+          <TabButton onClick={()=>handleClickMenu("props")}>Props</TabButton>
+          <TabButton onClick={()=>handleClickMenu("state")}>Estados</TabButton>
         </menu>
         
-        { selectedTopic }
-
+        <div id="tab-content">
+          <h3>{EXAMPLES[selectedTopic].title}</h3>
+          <p>{EXAMPLES[selectedTopic].description}</p>
+          <pre>
+            <code>
+              {EXAMPLES[selectedTopic].code}
+            </code>
+          </pre>
+        </div>
       </section>
 
       <main>
