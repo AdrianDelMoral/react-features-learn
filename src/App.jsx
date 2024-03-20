@@ -78,11 +78,12 @@ function App() {
           <CoreConcepts {...CORE_CONCEPTS[2]}/>
           <CoreConcepts {...CORE_CONCEPTS[3]}/>
           
-          {/* Antes de poner el spread operator "...":
-            <CoreConcepts imagePath={CORE_CONCEPTS[3].imagePath}  title={CORE_CONCEPTS[3].title} description={CORE_CONCEPTS[3].description}/> */}
-          
-          {/* Pasando las variables a mano:
-          <CoreConcepts imagePath={componentsImage} title="Componentes" description="El núcleo principal de construcción de una UI con React. La combinación de distintos componentes logra una composición de una UI más manejable"/> */}
+          {/* 
+            Antes de poner el spread operator "...":
+              <CoreConcepts imagePath={CORE_CONCEPTS[3].imagePath}  title={CORE_CONCEPTS[3].title} description={CORE_CONCEPTS[3].description}/>
+            Pasando las variables a mano:
+              <CoreConcepts imagePath={componentsImage} title="Componentes" description="El núcleo principal de construcción de una UI con React. La combinación de distintos componentes logra una composición de una UI más manejable"/> 
+          */}
 
         </div>
       </section>
@@ -98,10 +99,10 @@ function App() {
               parentesis, ya que recibe la declaración, pero no la ejecuta si no solo la 
               arrow function
           */}
-          <TabButton onClick={()=>handleClickMenu("components")}>Componentes</TabButton>
-          <TabButton onClick={()=>handleClickMenu("jsx")}>JSX</TabButton>
-          <TabButton onClick={()=>handleClickMenu("props")}>Props</TabButton>
-          <TabButton onClick={()=>handleClickMenu("state")}>Estados</TabButton>
+          <TabButton isSelected={selectedTopic === "components"} onClick={()=>handleClickMenu("components")}>Componentes</TabButton>
+          <TabButton isSelected={selectedTopic === "jsx"} onClick={()=>handleClickMenu("jsx")}>JSX</TabButton>
+          <TabButton isSelected={selectedTopic === "props"} onClick={()=>handleClickMenu("props")}>Props</TabButton>
+          <TabButton isSelected={selectedTopic === "state"} onClick={()=>handleClickMenu("state")}>Estados</TabButton>
         </menu>
         
         {tabContent}

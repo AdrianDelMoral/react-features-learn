@@ -1,3 +1,13 @@
+#examples menu {
+    margin: 1rem 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    align-items: center;
+}
+
 #examples menu button {
     padding: 0.5rem 1rem;
     border: none;
