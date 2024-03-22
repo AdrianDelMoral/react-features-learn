@@ -40,7 +40,6 @@ function App() {
 
   function handleClickMenu(selectedButton){
     setSelectedTopic(selectedButton);
-    console.log(`Ey! Estás pulsando el botón ${selectedTopic}`);
   }
 
   //* tabContent por defecto, para a la hora de no haber pulsado nada, que muestr algo por defecto
@@ -73,17 +72,22 @@ function App() {
             que recibimos de "./data.js" ya que se llamarán las variables en todas de la misma forma:
             - Serán añadidas como props del componente
           */} 
-          <CoreConcepts {...CORE_CONCEPTS[0]}/>
-          <CoreConcepts {...CORE_CONCEPTS[1]}/>
-          <CoreConcepts {...CORE_CONCEPTS[2]}/>
-          <CoreConcepts {...CORE_CONCEPTS[3]}/>
-          
+
           {/* 
             Antes de poner el spread operator "...":
               <CoreConcepts imagePath={CORE_CONCEPTS[3].imagePath}  title={CORE_CONCEPTS[3].title} description={CORE_CONCEPTS[3].description}/>
             Pasando las variables a mano:
               <CoreConcepts imagePath={componentsImage} title="Componentes" description="El núcleo principal de construcción de una UI con React. La combinación de distintos componentes logra una composición de una UI más manejable"/> 
           */}
+
+          {/* Manualmente
+            <CoreConcepts {...CORE_CONCEPTS[0]}/>
+          */}
+          
+          {/* Mapped */}
+          {CORE_CONCEPTS.map((conceptItem, index)=>
+            <CoreConcepts key={index} {...conceptItem}/>
+          )}
 
         </div>
       </section>
